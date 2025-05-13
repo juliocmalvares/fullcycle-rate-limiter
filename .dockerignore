@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.docker
+
+# IDE
+.idea
+.vscode
+
+# Binaries and temp files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+tmp/
+
+# Dependencies
+vendor/
+
+# Logs
+*.log
