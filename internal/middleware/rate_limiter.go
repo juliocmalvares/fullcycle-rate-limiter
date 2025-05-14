@@ -2,9 +2,11 @@ package middleware
 
 import (
 	"context"
+	"fmt"
 	"net"
 	"net/http"
 	"posgoexpert-rate-limiter/internal/limiter"
+	"posgoexpert-rate-limiter/internal/logger"
 	"strings"
 )
 
@@ -33,6 +35,7 @@ func RateLimitMiddleware(limiter *limiter.Limiter) func(http.Handler) http.Handl
 			token := r.Header.Get("API_KEY")
 			result, err := limiter.Check(ctx, ip, token)
 			if err != nil {
+				logger.Logger.Error(fmt.Sprintf("Error checking rate limit: %v", err))
 				http.Error(w, "internal limiter error", http.StatusInternalServerError)
 				return
 			}

@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  test:
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
+  # test:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.test
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     - redis
 
   app:
     build:
